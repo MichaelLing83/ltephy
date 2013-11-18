@@ -18,7 +18,10 @@ public class Parameter extends BasicBaseClass {
 	protected long				min		= 0;
 
 	public Parameter(long max, long min, long value, String prefix,
-			String suffix) {
+			String suffix) throws Exception {
+		garantee(min >= 0, "Minimum value could not be negative!");
+		garantee(prefix != null && suffix != null,
+				"Prefix or suffix could not be null pointer!");
 		this.max = max;
 		this.min = min;
 		this.value = value;
@@ -42,6 +45,10 @@ public class Parameter extends BasicBaseClass {
 			binarySb.insert(0, "0");
 		}
 		return binarySb.toString();
+	}
+
+	public long toLong() {
+		return value;
 	}
 
 	@Override
