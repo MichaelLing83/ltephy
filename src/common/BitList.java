@@ -12,9 +12,25 @@ public class BitList extends BasicBaseClass {
 		size = 0;
 	}
 
+	public BitList(int[] bitArray) throws Exception {
+		bitSet = new BitSet();
+		size = bitArray.length;
+		for (int i = 0; i < bitArray.length; i++) {
+			garantee(bitArray[bitArray.length - 1 - i] == 0
+					|| bitArray[bitArray.length - 1 - i] == 1,
+					"Invalid bit array for initialization: " + bitArray);
+			bitSet.set(i, bitArray[bitArray.length - 1 - i] == 1);
+		}
+	}
+
 	public boolean get(int bitIndex) throws Exception {
 		garantee(bitIndex < size, "bitIndex=" + bitIndex + " is out of range!");
 		return bitSet.get(bitIndex);
+	}
+
+	public int getInteger(int bitIndex) throws Exception {
+		garantee(bitIndex < size, "bitIndex=" + bitIndex + " is out of range!");
+		return bitSet.get(bitIndex) ? 1 : 0;
 	}
 
 	/**

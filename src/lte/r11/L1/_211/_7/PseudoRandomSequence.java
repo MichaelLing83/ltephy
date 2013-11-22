@@ -1,4 +1,4 @@
-package lte.r11.L1._211._7._2;
+package lte.r11.L1._211._7;
 
 import common.BasicBaseClass;
 import common.BitList;
