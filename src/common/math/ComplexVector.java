@@ -21,8 +21,96 @@ public class ComplexVector extends BasicBaseClass {
 		this.complexVector = another.complexVector.copy();
 	}
 
+	public ComplexVector add(ComplexVector v) {
+		ComplexVector result = new ComplexVector();
+		result.complexVector = this.complexVector.add(v.complexVector);
+		return result;
+	}
+
 	public void append(Complex complex) {
 		this.complexVector = this.complexVector.append(complex);
+	}
+
+	public void append(ComplexVector v) {
+		this.complexVector = this.complexVector.append(v.complexVector);
+	}
+
+	public ComplexVector copy() {
+		ComplexVector cp = new ComplexVector();
+		cp.complexVector = this.complexVector.copy();
+		return cp;
+	}
+
+	public Complex dotProduct(ComplexVector v) {
+		return this.complexVector.dotProduct(v.complexVector);
+	}
+
+	public ComplexVector ebeDivide(ComplexVector v) {
+		ComplexVector result = new ComplexVector();
+		result.complexVector = this.complexVector.ebeDivide(v.complexVector);
+		return result;
+	}
+
+	public ComplexVector ebeMultiply(ComplexVector v) {
+		ComplexVector result = new ComplexVector();
+		result.complexVector = this.complexVector.ebeMultiply(v.complexVector);
+		return result;
+	}
+
+	public int getDimension() {
+		return this.complexVector.getDimension();
+	}
+
+	public Complex getEntry(int index) {
+		return this.complexVector.getEntry(index);
+	}
+
+	public ComplexVector getSubVector(int index, int n) {
+		ComplexVector result = new ComplexVector();
+		result.complexVector = this.complexVector.getSubVector(index, n);
+		return result;
+	}
+
+	/**
+	 * Add Complex number c to each element of this ComplexVector.
+	 * 
+	 * @param c
+	 * @return
+	 */
+	public ComplexVector mapAdd(Complex c) {
+		ComplexVector result = new ComplexVector();
+		result.complexVector = this.complexVector.mapAdd(c);
+		return result;
+	}
+
+	/**
+	 * Each element of this ComplexVector is divided by Complex number c.
+	 * 
+	 * @param c
+	 * @return
+	 */
+	public ComplexVector mapDivide(Complex c) {
+		ComplexVector result = new ComplexVector();
+		result.complexVector = this.complexVector.mapDivide(c);
+		return result;
+	}
+
+	public void set(Complex c) {
+		this.complexVector.set(c);
+	}
+
+	public void setEntry(int index, Complex c) {
+		this.complexVector.setEntry(index, c);
+	}
+
+	public ComplexVector subtract(ComplexVector v) {
+		ComplexVector result = new ComplexVector();
+		result.complexVector = this.complexVector.subtract(v.complexVector);
+		return result;
+	}
+
+	public Complex[] toArray() {
+		return this.complexVector.toArray();
 	}
 
 	@Override
