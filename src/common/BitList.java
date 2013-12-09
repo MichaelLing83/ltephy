@@ -12,6 +12,11 @@ public class BitList extends BasicBaseClass {
 		size = 0;
 	}
 
+	public BitList(int size) {
+		bitSet = new BitSet();
+		this.size = size;
+	}
+
 	public BitList(int[] bitArray) throws Exception {
 		bitSet = new BitSet();
 		size = bitArray.length;
