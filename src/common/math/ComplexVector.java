@@ -17,8 +17,20 @@ public class ComplexVector extends BasicBaseClass {
 	public ComplexVector() {
 	}
 
+	public ComplexVector(Complex[] complexArray) {
+		for (int i = 0; i < complexArray.length; i++) {
+			this.setEntry(i, complexArray[i]);
+		}
+	}
+
 	public ComplexVector(ComplexVector another) {
 		this.complexVector = another.complexVector.copy();
+	}
+
+	public ComplexVector(int dimension, Complex defaultValue) {
+		for (int i = 0; i < dimension; i++) {
+			this.set(defaultValue);
+		}
 	}
 
 	public ComplexVector add(ComplexVector v) {

@@ -8,7 +8,7 @@ import common.math.ComplexVector;
 
 public class ModulationAndUpconversion extends common.BasicBaseClass {
 
-	static RealVector downlinkModulation(ComplexVector signal,
+	static public RealVector downlinkModulation(ComplexVector signal,
 			double timeStart, double timeStep, double f__0) throws Exception {
 		RealVector result = new ArrayRealVector();
 		double t = timeStart;
@@ -21,7 +21,7 @@ public class ModulationAndUpconversion extends common.BasicBaseClass {
 		return result;
 	}
 
-	static RealVector downlinkModulation(ComplexVector signal,
+	static public RealVector downlinkModulation(ComplexVector signal,
 			RealVector timeVector, double f__0) throws Exception {
 		garantee(signal.getDimension() == timeVector.getDimension(),
 				"Input signal must have the same length as time vector!!");
