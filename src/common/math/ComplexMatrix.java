@@ -94,7 +94,9 @@ public class ComplexMatrix extends common.BasicBaseClass {
 		int columnDimension = this.getColumnDimension();
 		for (int row = 0; row < rowDimension; row++) {
 			for (int column = 0; column < columnDimension; column++) {
-				sb.append(this.getEntry(row, column).toString() + "\t");
+				// sb.append(this.getEntry(row, column).toString() + "\t");
+				sb.append(MathHelper.complexToString(this.getEntry(row, column))
+						+ "\t");
 			}
 			sb.append("\n");
 		}
