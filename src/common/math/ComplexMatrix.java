@@ -11,6 +11,77 @@ public class ComplexMatrix extends common.BasicBaseClass {
 														ComplexField
 																.getInstance());
 
+	public ComplexMatrix add(ComplexMatrix m) {
+		ComplexMatrix result = new ComplexMatrix();
+		result.fieldMatrix = this.fieldMatrix.add(m.fieldMatrix);
+		return result;
+	}
+
+	public void addToEntry(int row, int column, Complex increment) {
+		this.fieldMatrix.addToEntry(row, column, increment);
+	}
+
+	public ComplexMatrix copy() {
+		ComplexMatrix result = new ComplexMatrix();
+		result.fieldMatrix = this.fieldMatrix.copy();
+		return result;
+	}
+
+	public ComplexMatrix createMatrix(int rowDimension, int columnDimension) {
+		ComplexMatrix result = new ComplexMatrix();
+		result.fieldMatrix = this.fieldMatrix.createMatrix(rowDimension,
+				columnDimension);
+		return result;
+	}
+
+	public int getColumnDimension() {
+		return this.fieldMatrix.getColumnDimension();
+	}
+
+	public Complex[][] getData() {
+		return fieldMatrix.getData();
+	}
+
+	public Complex getEntry(int row, int column) {
+		return fieldMatrix.getEntry(row, column);
+	}
+
+	public int getRowDimension() {
+		return this.fieldMatrix.getRowDimension();
+	}
+
+	public ComplexMatrix multiply(ComplexMatrix m) {
+		ComplexMatrix result = new ComplexMatrix();
+		result.fieldMatrix = this.fieldMatrix.multiply(m.fieldMatrix);
+		return result;
+	}
+
+	public void multiplyEntry(int row, int column, Complex factor) {
+		this.fieldMatrix.multiplyEntry(row, column, factor);
+	}
+
+	public Complex[] operate(Complex[] v) {
+		return this.fieldMatrix.operate(v);
+	}
+
+	public Complex[] preMultiply(Complex[] v) {
+		return this.fieldMatrix.preMultiply(v);
+	}
+
+	public void setEntry(int row, int column, Complex value) {
+		this.fieldMatrix.setEntry(row, column, value);
+	}
+
+	public void setSubMatrix(Complex[][] subMatrix, int row, int column) {
+		this.fieldMatrix.setSubMatrix(subMatrix, row, column);
+	}
+
+	public ComplexMatrix subtract(ComplexMatrix m) {
+		ComplexMatrix result = new ComplexMatrix();
+		result.fieldMatrix = this.fieldMatrix.subtract(m.fieldMatrix);
+		return result;
+	}
+
 	@Override
 	public String toBinaryString() {
 		// TODO Auto-generated method stub

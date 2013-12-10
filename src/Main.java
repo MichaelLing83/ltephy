@@ -8,11 +8,6 @@ import com.xeiam.xchart.SwingWrapper;
 public class Main {
 
 	public static void main(String[] args) {
-		// Create Chart
-		// Chart chart = new ChartBuilder().width(800).height(600)
-		// .theme(ChartTheme.Matlab).title("Matlab Theme").xAxisTitle("X")
-		// .yAxisTitle("Y").build();
-		// chart.getStyleManager().setPlotGridLinesVisible(false);
 
 		// generate data
 		Collection<Number> x = new ArrayList<Number>();
@@ -23,12 +18,37 @@ public class Main {
 			x.add(i * T);
 			y.add(Math.sin(i * T));
 		}
-
-		// Series series1 = chart.addSeries("sin(x)", x, y);
-		// series1.setLineStyle(SeriesLineStyle.DOT_DOT);
-
+		//
+		// // Series series1 = chart.addSeries("sin(x)", x, y);
+		// // series1.setLineStyle(SeriesLineStyle.DOT_DOT);
+		//
 		Chart chart = QuickChart.getChart("test", "x", "y", "sin(x)", x, y);
 		new SwingWrapper(chart).displayChart();
-	}
 
+		// XYSeriesCollection dataset = new XYSeriesCollection();
+		// XYSeries series = new XYSeries("XYGraph");
+		// long N = 1000;
+		// double T = Math.PI * 2 / N;
+		// for (int i = 0; i < N; i++) {
+		// series.add(i * T, Math.sin(i * T));
+		// }
+		// dataset.addSeries(series);
+		//
+		// JFreeChart chart = ChartFactory.createXYLineChart("XY Chart", "X",
+		// "Y",
+		// dataset);
+		//
+		// // JFreeChart chart = ChartFactory.createXYAreaChart("XY Chart", "X",
+		// // "Y",
+		// // dataset);
+		//
+		// try {
+		// ChartUtilities.saveChartAsJPEG(new File(
+		// "C:\\Users\\linggduo\\Documents\\test.jpeg"), chart, 1024,
+		// 768);
+		// } catch (IOException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+	}
 }
