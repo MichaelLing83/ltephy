@@ -84,20 +84,27 @@ public class ComplexMatrix extends common.BasicBaseClass {
 
 	@Override
 	public String toBinaryString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	@Override
 	public String toReadableString() {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder sb = new StringBuilder();
+		int rowDimension = this.getRowDimension();
+		int columnDimension = this.getColumnDimension();
+		for (int row = 0; row < rowDimension; row++) {
+			for (int column = 0; column < columnDimension; column++) {
+				sb.append(this.getEntry(row, column).toString() + "\t");
+			}
+			sb.append("\n");
+		}
+		sb.append("\n");
+		return sb.toString();
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return toReadableString();
 	}
 
 }
