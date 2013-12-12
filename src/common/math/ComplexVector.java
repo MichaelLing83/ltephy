@@ -19,7 +19,7 @@ public class ComplexVector extends BasicBaseClass {
 
 	public ComplexVector(Complex[] complexArray) {
 		for (int i = 0; i < complexArray.length; i++) {
-			this.setEntry(i, complexArray[i]);
+			this.append(complexArray[i]);
 		}
 	}
 
