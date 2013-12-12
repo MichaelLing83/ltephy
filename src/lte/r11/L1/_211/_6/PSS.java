@@ -28,6 +28,14 @@ public class PSS extends BasicBaseClass {
 		}
 	}
 
+	static public void mapPss(ComplexVector pss, ComplexVector reVector)
+			throws Exception {
+		for (int i = 0, k = -31 + reVector.getDimension() / 2; k < 62 - 31 + reVector
+				.getDimension() / 2; k++) {
+			reVector.setEntry(k, pss.getEntry(i++));
+		}
+	}
+
 	static public void mapPss(long multiplexingMode_i, ComplexVector pss,
 			long frame, int subframe, ComplexMatrix res) throws Exception {
 		garantee(
@@ -111,6 +119,10 @@ public class PSS extends BasicBaseClass {
 			cv.append(d_u(i, u));
 		}
 		return cv;
+	}
+
+	public PSS() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override

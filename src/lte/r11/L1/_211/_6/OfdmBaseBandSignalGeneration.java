@@ -65,8 +65,8 @@ public class OfdmBaseBandSignalGeneration extends common.BasicBaseClass {
 		}
 		// insert CP
 		ComplexVector afterCpInsersion = beforeCpInsersion.getSubVector(
-				beforeCpInsersion.getDimension() - cpLength, cpLength).add(
-				beforeCpInsersion);
+				beforeCpInsersion.getDimension() - cpLength, cpLength).copy();
+		afterCpInsersion.append(beforeCpInsersion);
 		return afterCpInsersion;
 	}
 

@@ -29,7 +29,7 @@ public class ComplexVector extends BasicBaseClass {
 
 	public ComplexVector(int dimension, Complex defaultValue) {
 		for (int i = 0; i < dimension; i++) {
-			this.set(defaultValue);
+			this.append(defaultValue);
 		}
 	}
 
