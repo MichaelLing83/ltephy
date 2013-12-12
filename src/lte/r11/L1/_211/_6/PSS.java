@@ -2,11 +2,14 @@ package lte.r11.L1._211._6;
 
 import java.util.Arrays;
 
+import lte.r11.L1.ReType;
+
 import org.apache.commons.math3.complex.Complex;
 
 import common.BasicBaseClass;
 import common.LteParameterLookUp;
 import common.ParameterName;
+import common.ReTypeMatrix;
 import common.math.ComplexMatrix;
 import common.math.ComplexVector;
 
@@ -56,6 +59,44 @@ public class PSS extends BasicBaseClass {
 				for (int i = 0, k = -31 + res.getRowDimension() / 2; k < 62 - 31 + res
 						.getRowDimension() / 2; k++) {
 					res.setEntry(k, l, pss.getEntry(i++));
+				}
+			}
+		}
+	}
+
+	static public void markPss(long multiplexingMode_i, ComplexVector pss,
+			long frame, int subframe, ReTypeMatrix reTypeMatrix)
+			throws Exception {
+		garantee(
+				multiplexingMode_i >= 0
+						&& multiplexingMode_i < LteParameterLookUp.get(
+								ParameterName.MultiplexingMode).getSize(),
+				"Invalid parameter!");
+		garantee(
+				reTypeMatrix.getColumnDimension() == 2 * 6
+						|| reTypeMatrix.getColumnDimension() == 2 * 7,
+				"Given RE matrix isn't for a subframe!");
+		if (multiplexingMode_i == LteParameterLookUp.lookUpIndex(
+				ParameterName.MultiplexingMode, "FDD")) {
+			if (subframe == 0 / 2 || subframe == 10 / 2) {
+				// has PSS
+				int l = 6;
+				if (reTypeMatrix.getColumnDimension() < 2 * 7) {
+					l = 5;
+				}
+				for (int k = -31 + reTypeMatrix.getRowDimension() / 2; k < 62 - 31 + reTypeMatrix
+						.getRowDimension() / 2; k++) {
+					reTypeMatrix.setEntry(k, l, ReType.PSS);
+				}
+			}
+		} else {
+			// TDD
+			if (subframe == 1 || subframe == 6) {
+				// has PSS
+				int l = 2;
+				for (int k = -31 + reTypeMatrix.getRowDimension() / 2; k < 62 - 31 + reTypeMatrix
+						.getRowDimension() / 2; k++) {
+					reTypeMatrix.setEntry(k, l, ReType.PSS);
 				}
 			}
 		}
