@@ -66,6 +66,16 @@ public class LteParameter extends BasicBaseClass {
 		return result;
 	}
 
+	public long getSize() throws Exception {
+		long size = -1;
+		if (this.allValueList != null) {
+			size = this.allValueList.size();
+		} else {
+			size = this.max - this.min + 1;
+		}
+		return size;
+	}
+
 	@Override
 	public String toBinaryString() {
 		return "";

@@ -13,6 +13,12 @@ public class LteParameterLookUp extends BasicBaseClass {
 			"15kHz" }, "", "kHz"));
 		m.put(ParameterName.DL_CyclicPrefixLength, new LteParameter(
 				new String[] { "len1", "len2" }, "len", ""));
+		m.put(ParameterName.MultiplexingMode, new LteParameter(new String[] {
+			"FDD", "TDD" }, "", ""));
+	}
+
+	static public LteParameter get(ParameterName key) {
+		return m.get(key);
 	}
 
 	static public long lookUpIndex(ParameterName key, String value)
